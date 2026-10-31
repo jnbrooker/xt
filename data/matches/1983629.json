@@ -5,12 +5,12 @@
  "away": "Manchester United",
  "home_score": 2,
  "away_score": 0,
- "elapsed": "90'",
+ "elapsed": "92'",
  "finished": false,
- "updated": "2026-10-31T14:19:45+00:00",
+ "updated": "2026-10-31T14:21:15+00:00",
  "xt": {
-  "home": 1.262,
-  "away": 1.106
+  "home": 1.266,
+  "away": 1.101
  },
  "xg": {
   "home": 2.02,
@@ -64,10 +64,10 @@
   {
    "name": "Diogo Dalot",
    "side": "away",
-   "xt": 0.119,
-   "xt_pass": 0.053,
+   "xt": 0.122,
+   "xt_pass": 0.057,
    "xt_carry": 0.065,
-   "moves": 31,
+   "moves": 32,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -75,10 +75,10 @@
   {
    "name": "Wesley Fofana",
    "side": "home",
-   "xt": 0.101,
-   "xt_pass": 0.091,
+   "xt": 0.105,
+   "xt_pass": 0.095,
    "xt_carry": 0.01,
-   "moves": 72,
+   "moves": 77,
    "goals": 0,
    "shots": 2,
    "xg": 0.13
@@ -86,10 +86,10 @@
   {
    "name": "Cole Palmer",
    "side": "home",
-   "xt": 0.099,
-   "xt_pass": 0.039,
-   "xt_carry": 0.06,
-   "moves": 62,
+   "xt": 0.097,
+   "xt_pass": 0.036,
+   "xt_carry": 0.061,
+   "moves": 66,
    "goals": 1,
    "shots": 2,
    "xg": 0.81
@@ -119,10 +119,10 @@
   {
    "name": "Rom\u00e9o Lavia",
    "side": "home",
-   "xt": 0.071,
+   "xt": 0.07,
    "xt_pass": 0.052,
-   "xt_carry": 0.019,
-   "moves": 88,
+   "xt_carry": 0.018,
+   "moves": 91,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -130,10 +130,10 @@
   {
    "name": "Bruno Fernandes",
    "side": "away",
-   "xt": 0.066,
-   "xt_pass": 0.066,
-   "xt_carry": 0.0,
-   "moves": 42,
+   "xt": 0.068,
+   "xt_pass": 0.068,
+   "xt_carry": 0.001,
+   "moves": 45,
    "goals": 0,
    "shots": 2,
    "xg": 0.32
@@ -199,18 +199,7 @@
    "xt": 0.041,
    "xt_pass": 0.034,
    "xt_carry": 0.007,
-   "moves": 63,
-   "goals": 0,
-   "shots": 0,
-   "xg": 0.0
-  },
-  {
-   "name": "Senne Lammens",
-   "side": "away",
-   "xt": 0.035,
-   "xt_pass": 0.029,
-   "xt_carry": 0.006,
-   "moves": 20,
+   "moves": 67,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -238,12 +227,23 @@
    "xg": 0.0
   },
   {
+   "name": "Senne Lammens",
+   "side": "away",
+   "xt": 0.023,
+   "xt_pass": 0.018,
+   "xt_carry": 0.006,
+   "moves": 20,
+   "goals": 0,
+   "shots": 0,
+   "xg": 0.0
+  },
+  {
    "name": "Josh Acheampong",
    "side": "home",
-   "xt": 0.02,
-   "xt_pass": 0.0,
-   "xt_carry": 0.02,
-   "moves": 61,
+   "xt": 0.022,
+   "xt_pass": -0.003,
+   "xt_carry": 0.024,
+   "moves": 65,
    "goals": 0,
    "shots": 2,
    "xg": 0.05
@@ -273,10 +273,10 @@
   {
    "name": "Mike Penders",
    "side": "home",
-   "xt": 0.005,
-   "xt_pass": 0.0,
+   "xt": 0.004,
+   "xt_pass": -0.001,
    "xt_carry": 0.005,
-   "moves": 23,
+   "moves": 24,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -287,7 +287,7 @@
    "xt": 0.003,
    "xt_pass": 0.004,
    "xt_carry": -0.001,
-   "moves": 4,
+   "moves": 5,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -296,9 +296,9 @@
    "name": "Kobbie Mainoo",
    "side": "away",
    "xt": 0.003,
-   "xt_pass": 0.003,
-   "xt_carry": 0.0,
-   "moves": 8,
+   "xt_pass": 0.002,
+   "xt_carry": 0.001,
+   "moves": 10,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -328,8 +328,19 @@
   {
    "name": "Valent\u00edn Barco",
    "side": "home",
-   "xt": -0.002,
-   "xt_pass": -0.002,
+   "xt": 0.0,
+   "xt_pass": -0.003,
+   "xt_carry": 0.003,
+   "moves": 9,
+   "goals": 0,
+   "shots": 0,
+   "xg": 0.0
+  },
+  {
+   "name": "Danny Welbeck",
+   "side": "home",
+   "xt": 0.0,
+   "xt_pass": 0.0,
    "xt_carry": 0.0,
    "moves": 1,
    "goals": 0,
@@ -5828,17 +5839,6 @@
    "y1": 19.2
   },
   {
-   "player": "Senne Lammens",
-   "side": "away",
-   "kind": "pass",
-   "minute": 91,
-   "xt": 0.0104,
-   "x0": 9.1,
-   "y0": 40.9,
-   "x1": 71.9,
-   "y1": 62.8
-  },
-  {
    "player": "Wesley Fofana",
    "side": "home",
    "kind": "pass",
@@ -5936,6 +5936,182 @@
    "y0": 52.4,
    "x1": 91.6,
    "y1": 43.2
+  },
+  {
+   "player": "Levi Colwill",
+   "side": "home",
+   "kind": "pass",
+   "minute": 92,
+   "xt": 0.0002,
+   "x0": 29.3,
+   "y0": 57.2,
+   "x1": 9.3,
+   "y1": 38.1
+  },
+  {
+   "player": "Wesley Fofana",
+   "side": "home",
+   "kind": "pass",
+   "minute": 92,
+   "xt": 0.0004,
+   "x0": 25.2,
+   "y0": 9.0,
+   "x1": 28.5,
+   "y1": 3.4
+  },
+  {
+   "player": "Wesley Fofana",
+   "side": "home",
+   "kind": "pass",
+   "minute": 93,
+   "xt": 0.0028,
+   "x0": 14.7,
+   "y0": 7.6,
+   "x1": 28.4,
+   "y1": 10.2
+  },
+  {
+   "player": "Valent\u00edn Barco",
+   "side": "home",
+   "kind": "carry",
+   "minute": 93,
+   "xt": 0.0005,
+   "x0": 28.4,
+   "y0": 10.2,
+   "x1": 32.2,
+   "y1": 23.1
+  },
+  {
+   "player": "Valent\u00edn Barco",
+   "side": "home",
+   "kind": "pass",
+   "minute": 93,
+   "xt": 0.0002,
+   "x0": 32.2,
+   "y0": 23.1,
+   "x1": 31.5,
+   "y1": 37.7
+  },
+  {
+   "player": "Josh Acheampong",
+   "side": "home",
+   "kind": "carry",
+   "minute": 93,
+   "xt": 0.0041,
+   "x0": 33.7,
+   "y0": 6.3,
+   "x1": 43.9,
+   "y1": 15.6
+  },
+  {
+   "player": "Valent\u00edn Barco",
+   "side": "home",
+   "kind": "pass",
+   "minute": 93,
+   "xt": 0.0016,
+   "x0": 38.3,
+   "y0": 18.6,
+   "x1": 45.7,
+   "y1": 18.4
+  },
+  {
+   "player": "Bruno Fernandes",
+   "side": "away",
+   "kind": "carry",
+   "minute": 93,
+   "xt": 0.0006,
+   "x0": 47.0,
+   "y0": 44.5,
+   "x1": 46.0,
+   "y1": 39.1
+  },
+  {
+   "player": "Bruno Fernandes",
+   "side": "away",
+   "kind": "pass",
+   "minute": 93,
+   "xt": 0.0045,
+   "x0": 46.0,
+   "y0": 39.1,
+   "x1": 62.8,
+   "y1": 44.9
+  },
+  {
+   "player": "Valent\u00edn Barco",
+   "side": "home",
+   "kind": "carry",
+   "minute": 93,
+   "xt": 0.0017,
+   "x0": 38.6,
+   "y0": 26.2,
+   "x1": 47.7,
+   "y1": 43.0
+  },
+  {
+   "player": "Cole Palmer",
+   "side": "home",
+   "kind": "carry",
+   "minute": 93,
+   "xt": 0.0009,
+   "x0": 41.7,
+   "y0": 61.4,
+   "x1": 39.7,
+   "y1": 57.7
+  },
+  {
+   "player": "Wesley Fofana",
+   "side": "home",
+   "kind": "pass",
+   "minute": 93,
+   "xt": 0.0015,
+   "x0": 30.6,
+   "y0": 22.0,
+   "x1": 35.4,
+   "y1": 28.4
+  },
+  {
+   "player": "Valent\u00edn Barco",
+   "side": "home",
+   "kind": "carry",
+   "minute": 93,
+   "xt": 0.0013,
+   "x0": 33.2,
+   "y0": 42.4,
+   "x1": 36.1,
+   "y1": 41.8
+  },
+  {
+   "player": "Diogo Dalot",
+   "side": "away",
+   "kind": "pass",
+   "minute": 93,
+   "xt": 0.0033,
+   "x0": 33.2,
+   "y0": 58.4,
+   "x1": 44.5,
+   "y1": 56.2
+  },
+  {
+   "player": "Kobbie Mainoo",
+   "side": "away",
+   "kind": "carry",
+   "minute": 94,
+   "xt": 0.0009,
+   "x0": 44.5,
+   "y0": 56.2,
+   "x1": 54.1,
+   "y1": 63.9
+  },
+  {
+   "player": "Ayden Heaven",
+   "side": "away",
+   "kind": "pass",
+   "minute": 94,
+   "xt": 0.0002,
+   "x0": 33.1,
+   "y0": 47.7,
+   "x1": 30.5,
+   "y1": 34.8
   }
  ]
 }
