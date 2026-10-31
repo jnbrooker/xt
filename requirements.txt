@@ -1,0 +1,4 @@
+# Python 3.12 (socceraction's pinned numpy has no 3.13 wheels)
+socceraction==1.5.3
+soccerdata==2026.43.0
+multimethod<2  # pandera 0.17 (pulled in by socceraction) breaks on multimethod 2.x
