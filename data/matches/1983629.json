@@ -5,39 +5,39 @@
  "away": "Manchester United",
  "home_score": 2,
  "away_score": 0,
- "elapsed": "86'",
+ "elapsed": "90'",
  "finished": false,
- "updated": "2026-10-31T14:15:11+00:00",
+ "updated": "2026-10-31T14:19:45+00:00",
  "xt": {
-  "home": 1.188,
-  "away": 1.096
+  "home": 1.262,
+  "away": 1.106
  },
  "xg": {
-  "home": 1.97,
+  "home": 2.02,
   "away": 1.11
  },
  "players": [
   {
+   "name": "Est\u00eav\u00e3o",
+   "side": "home",
+   "xt": 0.358,
+   "xt_pass": 0.225,
+   "xt_carry": 0.133,
+   "moves": 44,
+   "goals": 0,
+   "shots": 6,
+   "xg": 0.21
+  },
+  {
    "name": "Morgan Rogers",
    "side": "home",
-   "xt": 0.368,
-   "xt_pass": 0.107,
+   "xt": 0.341,
+   "xt_pass": 0.08,
    "xt_carry": 0.262,
-   "moves": 41,
+   "moves": 43,
    "goals": 1,
    "shots": 1,
    "xg": 0.65
-  },
-  {
-   "name": "Est\u00eav\u00e3o",
-   "side": "home",
-   "xt": 0.345,
-   "xt_pass": 0.223,
-   "xt_carry": 0.122,
-   "moves": 40,
-   "goals": 0,
-   "shots": 5,
-   "xg": 0.15
   },
   {
    "name": "Bryan Mbeumo",
@@ -75,21 +75,32 @@
   {
    "name": "Wesley Fofana",
    "side": "home",
-   "xt": 0.099,
-   "xt_pass": 0.089,
+   "xt": 0.101,
+   "xt_pass": 0.091,
    "xt_carry": 0.01,
-   "moves": 68,
+   "moves": 72,
    "goals": 0,
    "shots": 2,
    "xg": 0.13
   },
   {
+   "name": "Cole Palmer",
+   "side": "home",
+   "xt": 0.099,
+   "xt_pass": 0.039,
+   "xt_carry": 0.06,
+   "moves": 62,
+   "goals": 1,
+   "shots": 2,
+   "xg": 0.81
+  },
+  {
    "name": "Mois\u00e9s Caicedo",
    "side": "home",
-   "xt": 0.086,
-   "xt_pass": 0.084,
+   "xt": 0.088,
+   "xt_pass": 0.086,
    "xt_carry": 0.002,
-   "moves": 58,
+   "moves": 61,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -108,10 +119,10 @@
   {
    "name": "Rom\u00e9o Lavia",
    "side": "home",
-   "xt": 0.069,
+   "xt": 0.071,
    "xt_pass": 0.052,
-   "xt_carry": 0.018,
-   "moves": 83,
+   "xt_carry": 0.019,
+   "moves": 88,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -128,23 +139,12 @@
    "xg": 0.32
   },
   {
-   "name": "Cole Palmer",
-   "side": "home",
-   "xt": 0.06,
-   "xt_pass": 0.006,
-   "xt_carry": 0.054,
-   "moves": 53,
-   "goals": 1,
-   "shots": 2,
-   "xg": 0.81
-  },
-  {
    "name": "Harry Maguire",
    "side": "away",
    "xt": 0.057,
    "xt_pass": 0.038,
    "xt_carry": 0.019,
-   "moves": 39,
+   "moves": 40,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -159,6 +159,17 @@
    "goals": 0,
    "shots": 0,
    "xg": 0.0
+  },
+  {
+   "name": "Pedro Neto",
+   "side": "home",
+   "xt": 0.055,
+   "xt_pass": 0.027,
+   "xt_carry": 0.028,
+   "moves": 26,
+   "goals": 0,
+   "shots": 3,
+   "xg": 0.16
   },
   {
    "name": "Matheus Cunha",
@@ -183,23 +194,23 @@
    "xg": 0.0
   },
   {
-   "name": "Pedro Neto",
-   "side": "home",
-   "xt": 0.048,
-   "xt_pass": 0.023,
-   "xt_carry": 0.025,
-   "moves": 22,
-   "goals": 0,
-   "shots": 3,
-   "xg": 0.16
-  },
-  {
    "name": "Levi Colwill",
    "side": "home",
-   "xt": 0.036,
-   "xt_pass": 0.031,
-   "xt_carry": 0.005,
-   "moves": 56,
+   "xt": 0.041,
+   "xt_pass": 0.034,
+   "xt_carry": 0.007,
+   "moves": 63,
+   "goals": 0,
+   "shots": 0,
+   "xg": 0.0
+  },
+  {
+   "name": "Senne Lammens",
+   "side": "away",
+   "xt": 0.035,
+   "xt_pass": 0.029,
+   "xt_carry": 0.006,
+   "moves": 20,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -216,26 +227,26 @@
    "xg": 0.04
   },
   {
-   "name": "Josh Acheampong",
+   "name": "Pep Chavarr\u00eda",
    "side": "home",
    "xt": 0.03,
-   "xt_pass": 0.002,
-   "xt_carry": 0.028,
-   "moves": 51,
-   "goals": 0,
-   "shots": 2,
-   "xg": 0.05
-  },
-  {
-   "name": "Senne Lammens",
-   "side": "away",
-   "xt": 0.025,
-   "xt_pass": 0.02,
-   "xt_carry": 0.006,
-   "moves": 18,
+   "xt_pass": -0.003,
+   "xt_carry": 0.033,
+   "moves": 11,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
+  },
+  {
+   "name": "Josh Acheampong",
+   "side": "home",
+   "xt": 0.02,
+   "xt_pass": 0.0,
+   "xt_carry": 0.02,
+   "moves": 61,
+   "goals": 0,
+   "shots": 2,
+   "xg": 0.05
   },
   {
    "name": "Mason Mount",
@@ -262,10 +273,10 @@
   {
    "name": "Mike Penders",
    "side": "home",
-   "xt": 0.004,
-   "xt_pass": 0.001,
-   "xt_carry": 0.003,
-   "moves": 20,
+   "xt": 0.005,
+   "xt_pass": 0.0,
+   "xt_carry": 0.005,
+   "moves": 23,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -295,21 +306,32 @@
   {
    "name": "Joshua Zirkzee",
    "side": "away",
-   "xt": 0.0,
+   "xt": 0.001,
    "xt_pass": 0.0,
-   "xt_carry": 0.0,
-   "moves": 0,
+   "xt_carry": 0.001,
+   "moves": 1,
    "goals": 0,
    "shots": 1,
    "xg": 0.02
   },
   {
-   "name": "Pep Chavarr\u00eda",
+   "name": "Malo Gusto",
    "side": "home",
-   "xt": -0.013,
-   "xt_pass": -0.006,
-   "xt_carry": -0.006,
-   "moves": 5,
+   "xt": 0.001,
+   "xt_pass": 0.001,
+   "xt_carry": 0.0,
+   "moves": 1,
+   "goals": 0,
+   "shots": 0,
+   "xg": 0.0
+  },
+  {
+   "name": "Valent\u00edn Barco",
+   "side": "home",
+   "xt": -0.002,
+   "xt_pass": -0.002,
+   "xt_carry": 0.0,
+   "moves": 1,
    "goals": 0,
    "shots": 0,
    "xg": 0.0
@@ -5344,6 +5366,17 @@
    "y1": 52.6
   },
   {
+   "player": "Joshua Zirkzee",
+   "side": "away",
+   "kind": "carry",
+   "minute": 83,
+   "xt": 0.001,
+   "x0": 10.8,
+   "y0": 45.5,
+   "x1": 11.8,
+   "y1": 41.3
+  },
+  {
    "player": "Levi Colwill",
    "side": "home",
    "kind": "pass",
@@ -5507,6 +5540,402 @@
    "y0": 37.9,
    "x1": 73.4,
    "y1": 42.8
+  },
+  {
+   "player": "Mike Penders",
+   "side": "home",
+   "kind": "carry",
+   "minute": 87,
+   "xt": 0.0014,
+   "x0": 3.5,
+   "y0": 33.8,
+   "x1": 10.5,
+   "y1": 31.2
+  },
+  {
+   "player": "Josh Acheampong",
+   "side": "home",
+   "kind": "carry",
+   "minute": 87,
+   "xt": 0.0008,
+   "x0": 28.6,
+   "y0": 6.9,
+   "x1": 34.2,
+   "y1": 9.2
+  },
+  {
+   "player": "Josh Acheampong",
+   "side": "home",
+   "kind": "pass",
+   "minute": 87,
+   "xt": 0.0007,
+   "x0": 34.2,
+   "y0": 9.2,
+   "x1": 37.5,
+   "y1": 5.6
+  },
+  {
+   "player": "Cole Palmer",
+   "side": "home",
+   "kind": "carry",
+   "minute": 87,
+   "xt": 0.0062,
+   "x0": 37.5,
+   "y0": 5.6,
+   "x1": 68.2,
+   "y1": 7.1
+  },
+  {
+   "player": "Cole Palmer",
+   "side": "home",
+   "kind": "pass",
+   "minute": 87,
+   "xt": 0.0038,
+   "x0": 68.2,
+   "y0": 7.1,
+   "x1": 77.8,
+   "y1": 6.3
+  },
+  {
+   "player": "Harry Maguire",
+   "side": "away",
+   "kind": "carry",
+   "minute": 87,
+   "xt": 0.0002,
+   "x0": 14.0,
+   "y0": 21.4,
+   "x1": 22.9,
+   "y1": 18.8
+  },
+  {
+   "player": "Levi Colwill",
+   "side": "home",
+   "kind": "carry",
+   "minute": 87,
+   "xt": 0.001,
+   "x0": 12.4,
+   "y0": 61.8,
+   "x1": 9.8,
+   "y1": 57.2
+  },
+  {
+   "player": "Levi Colwill",
+   "side": "home",
+   "kind": "pass",
+   "minute": 88,
+   "xt": 0.0006,
+   "x0": 9.8,
+   "y0": 57.2,
+   "x1": 23.2,
+   "y1": 52.0
+  },
+  {
+   "player": "Pep Chavarr\u00eda",
+   "side": "home",
+   "kind": "carry",
+   "minute": 88,
+   "xt": 0.0017,
+   "x0": 23.2,
+   "y0": 52.0,
+   "x1": 27.1,
+   "y1": 48.6
+  },
+  {
+   "player": "Wesley Fofana",
+   "side": "home",
+   "kind": "pass",
+   "minute": 88,
+   "xt": 0.0009,
+   "x0": 25.1,
+   "y0": 25.6,
+   "x1": 26.5,
+   "y1": 43.2
+  },
+  {
+   "player": "Levi Colwill",
+   "side": "home",
+   "kind": "pass",
+   "minute": 88,
+   "xt": 0.0016,
+   "x0": 28.6,
+   "y0": 45.4,
+   "x1": 37.3,
+   "y1": 50.2
+  },
+  {
+   "player": "Levi Colwill",
+   "side": "home",
+   "kind": "pass",
+   "minute": 88,
+   "xt": 0.0008,
+   "x0": 25.4,
+   "y0": 46.4,
+   "x1": 16.0,
+   "y1": 29.0
+  },
+  {
+   "player": "Josh Acheampong",
+   "side": "home",
+   "kind": "carry",
+   "minute": 88,
+   "xt": 0.0021,
+   "x0": 24.4,
+   "y0": 7.9,
+   "x1": 33.5,
+   "y1": 11.6
+  },
+  {
+   "player": "Josh Acheampong",
+   "side": "home",
+   "kind": "pass",
+   "minute": 88,
+   "xt": 0.0021,
+   "x0": 33.5,
+   "y0": 11.6,
+   "x1": 35.1,
+   "y1": 23.2
+  },
+  {
+   "player": "Pedro Neto",
+   "side": "home",
+   "kind": "carry",
+   "minute": 88,
+   "xt": 0.0034,
+   "x0": 43.6,
+   "y0": 47.3,
+   "x1": 58.6,
+   "y1": 51.5
+  },
+  {
+   "player": "Pedro Neto",
+   "side": "home",
+   "kind": "pass",
+   "minute": 88,
+   "xt": 0.0013,
+   "x0": 58.6,
+   "y0": 51.5,
+   "x1": 68.2,
+   "y1": 65.6
+  },
+  {
+   "player": "Pep Chavarr\u00eda",
+   "side": "home",
+   "kind": "carry",
+   "minute": 88,
+   "xt": 0.0067,
+   "x0": 68.2,
+   "y0": 65.6,
+   "x1": 72.4,
+   "y1": 49.0
+  },
+  {
+   "player": "Cole Palmer",
+   "side": "home",
+   "kind": "pass",
+   "minute": 88,
+   "xt": 0.0057,
+   "x0": 71.2,
+   "y0": 26.2,
+   "x1": 83.1,
+   "y1": 12.2
+  },
+  {
+   "player": "Est\u00eav\u00e3o",
+   "side": "home",
+   "kind": "carry",
+   "minute": 88,
+   "xt": 0.0111,
+   "x0": 83.1,
+   "y0": 12.2,
+   "x1": 90.4,
+   "y1": 16.0
+  },
+  {
+   "player": "Cole Palmer",
+   "side": "home",
+   "kind": "pass",
+   "minute": 88,
+   "xt": 0.0111,
+   "x0": 82.3,
+   "y0": 16.4,
+   "x1": 89.8,
+   "y1": 10.0
+  },
+  {
+   "player": "Est\u00eav\u00e3o",
+   "side": "home",
+   "kind": "pass",
+   "minute": 88,
+   "xt": 0.0142,
+   "x0": 89.2,
+   "y0": 16.7,
+   "x1": 92.1,
+   "y1": 19.0
+  },
+  {
+   "player": "Pedro Neto",
+   "side": "home",
+   "kind": "pass",
+   "minute": 89,
+   "xt": 0.0053,
+   "x0": 83.1,
+   "y0": 54.4,
+   "x1": 93.0,
+   "y1": 62.6
+  },
+  {
+   "player": "Pep Chavarr\u00eda",
+   "side": "home",
+   "kind": "pass",
+   "minute": 89,
+   "xt": 0.0031,
+   "x0": 92.9,
+   "y0": 63.9,
+   "x1": 99.1,
+   "y1": 4.9
+  },
+  {
+   "player": "Mois\u00e9s Caicedo",
+   "side": "home",
+   "kind": "pass",
+   "minute": 89,
+   "xt": 0.0019,
+   "x0": 69.8,
+   "y0": 4.9,
+   "x1": 63.2,
+   "y1": 19.6
+  },
+  {
+   "player": "Wesley Fofana",
+   "side": "home",
+   "kind": "pass",
+   "minute": 89,
+   "xt": 0.0006,
+   "x0": 63.1,
+   "y0": 19.6,
+   "x1": 68.7,
+   "y1": 27.3
+  },
+  {
+   "player": "Cole Palmer",
+   "side": "home",
+   "kind": "pass",
+   "minute": 89,
+   "xt": 0.0042,
+   "x0": 67.3,
+   "y0": 25.8,
+   "x1": 73.7,
+   "y1": 19.2
+  },
+  {
+   "player": "Senne Lammens",
+   "side": "away",
+   "kind": "pass",
+   "minute": 91,
+   "xt": 0.0104,
+   "x0": 9.1,
+   "y0": 40.9,
+   "x1": 71.9,
+   "y1": 62.8
+  },
+  {
+   "player": "Wesley Fofana",
+   "side": "home",
+   "kind": "pass",
+   "minute": 91,
+   "xt": 0.0018,
+   "x0": 25.8,
+   "y0": 11.2,
+   "x1": 35.1,
+   "y1": 5.8
+  },
+  {
+   "player": "Malo Gusto",
+   "side": "home",
+   "kind": "pass",
+   "minute": 91,
+   "xt": 0.0009,
+   "x0": 36.5,
+   "y0": 4.3,
+   "x1": 35.1,
+   "y1": 10.2
+  },
+  {
+   "player": "Josh Acheampong",
+   "side": "home",
+   "kind": "pass",
+   "minute": 91,
+   "xt": 0.0013,
+   "x0": 32.4,
+   "y0": 3.3,
+   "x1": 30.3,
+   "y1": 22.4
+  },
+  {
+   "player": "Rom\u00e9o Lavia",
+   "side": "home",
+   "kind": "carry",
+   "minute": 91,
+   "xt": 0.0002,
+   "x0": 30.3,
+   "y0": 22.4,
+   "x1": 28.2,
+   "y1": 25.8
+  },
+  {
+   "player": "Levi Colwill",
+   "side": "home",
+   "kind": "carry",
+   "minute": 91,
+   "xt": 0.0012,
+   "x0": 24.7,
+   "y0": 37.3,
+   "x1": 34.0,
+   "y1": 41.1
+  },
+  {
+   "player": "Rom\u00e9o Lavia",
+   "side": "home",
+   "kind": "carry",
+   "minute": 91,
+   "xt": 0.0014,
+   "x0": 34.6,
+   "y0": 35.4,
+   "x1": 42.6,
+   "y1": 45.4
+  },
+  {
+   "player": "Rom\u00e9o Lavia",
+   "side": "home",
+   "kind": "pass",
+   "minute": 91,
+   "xt": 0.0022,
+   "x0": 42.6,
+   "y0": 45.4,
+   "x1": 50.1,
+   "y1": 35.6
+  },
+  {
+   "player": "Cole Palmer",
+   "side": "home",
+   "kind": "pass",
+   "minute": 91,
+   "xt": 0.0092,
+   "x0": 51.4,
+   "y0": 39.0,
+   "x1": 75.1,
+   "y1": 52.4
+  },
+  {
+   "player": "Pep Chavarr\u00eda",
+   "side": "home",
+   "kind": "carry",
+   "minute": 92,
+   "xt": 0.0309,
+   "x0": 75.1,
+   "y0": 52.4,
+   "x1": 91.6,
+   "y1": 43.2
   }
  ]
 }
