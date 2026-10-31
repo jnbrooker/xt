@@ -30,10 +30,11 @@ def find_match(kickoff: datetime, home: str, away: str) -> int | None:
     return None
 
 
-def match_shots(kickoff: datetime, home: str, away: str) -> list[dict] | None:
-    """Every shot with side ("home"/"away"), Opta event id, player, xG and whether it was a goal.
+def fotmob_match(kickoff: datetime, home: str, away: str) -> dict | None:
+    """Live score, clock and every shot (side, Opta event id, player, xG, goal).
 
-    Returns None if FotMob can't be reached or the match isn't found, so pages can show "–".
+    FotMob's scoreboard runs ahead of WhoScored's, so pages prefer it. Returns None if
+    FotMob can't be reached or the match isn't found, so pages fall back to WhoScored.
     """
     try:
         fotmob_id = find_match(kickoff, home, away)
@@ -42,8 +43,21 @@ def match_shots(kickoff: datetime, home: str, away: str) -> list[dict] | None:
         details = _get(f"matchDetails?matchId={fotmob_id}")
     except (OSError, ValueError, KeyError):
         return None
-    home_id = details["header"]["teams"][0]["id"]
+    teams, status = details["header"]["teams"], details["header"]["status"]
+    home_id = teams[0]["id"]
     shotmap = details.get("content", {}).get("shotmap") or {}
+    # liveTime.short looks like "80‎’‎"; keep just "80'" (or "HT")
+    clock = (status.get("liveTime") or {}).get("short", "").replace("‎", "").replace("’", "'")
+    return {
+        "home_score": teams[0].get("score"),
+        "away_score": teams[1].get("score"),
+        "elapsed": "FT" if status.get("finished") else clock,
+        "finished": bool(status.get("finished")),
+        "shots": _shots(shotmap, home_id),
+    }
+
+
+def _shots(shotmap: dict, home_id: int) -> list[dict]:
     return [
         {
             "event_id": s["id"],

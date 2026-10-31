@@ -9,7 +9,7 @@ import soccerdata as sd
 import socceraction.spadl as spadl
 from socceraction import xthreat
 
-from xt.shots import match_shots
+from xt.shots import fotmob_match
 
 ROOT = Path(__file__).resolve().parent.parent
 GRID = ROOT / "data" / "xt_grid_12x8.json"  # Karun Singh's open 12x8 xT surface
@@ -59,9 +59,10 @@ def build_match(row: pd.Series, season: str) -> dict:
         .reset_index()
     )
 
-    # Shots and xG come from FotMob; its shot ids are the same Opta event ids WhoScored uses,
+    # Score, clock, shots and xG come from FotMob; its shot ids are the same Opta event ids WhoScored uses,
     # so players are matched exactly and only fall back to FotMob's spelling for very recent shots
-    shot_list = match_shots(row.date.to_pydatetime(), row.home_team, row.away_team)
+    fotmob = fotmob_match(row.date.to_pydatetime(), row.home_team, row.away_team)
+    shot_list = fotmob["shots"] if fotmob else None
     shots = pd.DataFrame(shot_list or [], columns=["event_id", "player", "side", "xg", "goal", "own_goal"])
     shots = shots[~shots.own_goal.astype(bool)]
     known = actions.dropna(subset=["original_event_id"]).drop_duplicates("original_event_id")
@@ -75,15 +76,22 @@ def build_match(row: pd.Series, season: str) -> dict:
     )
     team_xg = None if shot_list is None else {s: round(float(shots.loc[shots.side == s, "xg"].sum()), 2) for s in ("home", "away")}
 
+    # FotMob's scoreboard is quicker than WhoScored's, so it wins when available
+    scoreboard = {
+        "home_score": None if pd.isna(row.home_score) else int(row.home_score),
+        "away_score": None if pd.isna(row.away_score) else int(row.away_score),
+        "elapsed": str(row.elapsed or ""),
+        "finished": not live,
+    }
+    if fotmob:
+        scoreboard.update({k: fotmob[k] for k in scoreboard})
+
     return {
         "id": game_id,
         "date": row.date.isoformat(),
         "home": row.home_team,
         "away": row.away_team,
-        "home_score": None if pd.isna(row.home_score) else int(row.home_score),
-        "away_score": None if pd.isna(row.away_score) else int(row.away_score),
-        "elapsed": str(row.elapsed or ""),
-        "finished": not live,
+        **scoreboard,
         "updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "xt": {side: round(float(moves.loc[moves.side == side, "xt"].sum()), 3) for side in ("home", "away")},
         "xg": team_xg,
