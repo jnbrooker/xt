@@ -40,6 +40,8 @@ tbody tr{cursor:pointer}tbody tr:hover,tbody tr.on{background:var(--card)}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
 .home{background:var(--home)}.away{background:var(--away)}
 .num-muted{color:var(--muted)}
+.goals{font-size:12px;margin-left:4px;letter-spacing:1px}
+.list .xt{text-align:right}
 .list a{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none}
 .list .xt{color:var(--muted);font-size:13px;white-space:nowrap}
 @media (max-width:560px){.hide-sm{display:none}}
@@ -118,31 +120,45 @@ def when(m: dict) -> str:
     return datetime.fromisoformat(m["date"]).strftime("%a %d %b %Y")
 
 
-def match_page(m: dict) -> str:
-    h, a = m["xt"]["home"], m["xt"]["away"]
+def split(label: str, m: dict, values: dict | None) -> str:
+    """A home-vs-away figure with a bar showing each side's share."""
+    if values is None:
+        return ""
+    h, a = values["home"], values["away"]
     pos_h, pos_a = max(h, 0), max(a, 0)
     share = 50 if pos_h + pos_a == 0 else round(100 * pos_h / (pos_h + pos_a))
-    rows = "".join(
+    return f"""<div class="label">{label}</div>
+<div class="split"><span><span class="dot home"></span>{escape(m["home"])} <b>{h:.2f}</b></span><span><b>{a:.2f}</b> {escape(m["away"])}<span class="dot away" style="margin:0 0 0 8px"></span></span></div>
+<div class="bar"><span style="width:{share}%"></span><span style="width:{100 - share}%"></span></div>"""
+
+
+def player_row(i: int, p: dict) -> str:
+    balls = f' <span class="goals" title="{p.get("goals")} goal(s)">{"⚽" * p.get("goals", 0)}</span>' if p.get("goals") else ""
+    shots = p.get("shots", 0)
+    return (
         f'<tr data-player="{escape(p["name"])}"><td>{i}</td>'
-        f'<td><span class="dot {p["side"]}"></span>{escape(p["name"])}</td>'
-        f'<td><b>{p["xt"]:.3f}</b></td><td class="hide-sm num-muted">{p["xt_pass"]:.3f}</td>'
-        f'<td class="hide-sm num-muted">{p["xt_carry"]:.3f}</td><td class="num-muted">{p["moves"]}</td></tr>'
-        for i, p in enumerate(m["players"], 1)
+        f'<td><span class="dot {p["side"]}"></span>{escape(p["name"])}{balls}</td>'
+        f'<td><b>{p["xt"]:.3f}</b></td>'
+        f'<td>{f"{p['xg']:.2f}" if shots else "–"}</td><td class="num-muted">{shots or "–"}</td>'
+        f'<td class="hide-sm num-muted">{p["xt_pass"]:.3f}</td><td class="hide-sm num-muted">{p["xt_carry"]:.3f}</td></tr>'
     )
+
+
+def match_page(m: dict) -> str:
+    rows = "".join(player_row(i, p) for i, p in enumerate(m["players"], 1))
     tips = TIP.format(s="home") + TIP.format(s="away")
     body = f"""<a class="back" href="../index.html">← All matches</a>
 <h1>{escape(m["home"])} {score(m)} {escape(m["away"])}</h1>
 <p class="meta">{when(m)} · {status(m)} · updated {m["updated"][11:16]} UTC</p>
-<div class="label">Expected threat</div>
-<div class="split"><span><span class="dot home"></span>{escape(m["home"])} <b>{h:.2f}</b></span><span><b>{a:.2f}</b> {escape(m["away"])}<span class="dot away" style="margin:0 0 0 8px"></span></span></div>
-<div class="bar"><span style="width:{share}%"></span><span style="width:{100 - share}%"></span></div>
+{split("Expected threat", m, m["xt"])}
+{split("Expected goals", m, m.get("xg"))}
 <div class="label">Moves</div>
 {PITCH_SVG.format(tips=tips)}
 <div class="hint" id="hint"></div>
 <div class="label">Players</div>
-<table><thead><tr><th>#</th><th>Player</th><th>xT</th><th class="hide-sm">Pass</th><th class="hide-sm">Carry</th><th>Moves</th></tr></thead>
+<table><thead><tr><th>#</th><th>Player</th><th>xT</th><th>xG</th><th>Shots</th><th class="hide-sm">xT pass</th><th class="hide-sm">xT carry</th></tr></thead>
 <tbody>{rows}</tbody></table>
-<p class="hint">xT from successful passes and carries, using Karun Singh's open 12×8 grid via socceraction. Event data: WhoScored.</p>
+<p class="hint">xT from successful passes and carries, using Karun Singh's open 12×8 grid via socceraction. Events: WhoScored. Shots and xG: FotMob (Opta).</p>
 <script type="application/json" id="data">{json.dumps(m["actions"]).replace("</", "<\\/")}</script>
 <script>{PITCH_JS}</script>"""
     return page(f'{m["home"]} v {m["away"]} · xT', body, depth=1,
@@ -155,7 +171,9 @@ def index_page(matches: list[dict]) -> str:
         f'<span><span class="dot home"></span>{escape(m["home"])} {score(m)} {escape(m["away"])}'
         f'<span class="dot away" style="margin:0 0 0 8px"></span>'
         f'<br><span class="meta">{when(m)} · {status(m)}</span></span>'
-        f'<span class="xt">xT {m["xt"]["home"]:.2f} – {m["xt"]["away"]:.2f}</span></a>'
+        f'<span class="xt">xT {m["xt"]["home"]:.2f} – {m["xt"]["away"]:.2f}'
+        + (f'<br>xG {m["xg"]["home"]:.2f} – {m["xg"]["away"]:.2f}' if m.get("xg") else "")
+        + "</span></a>"
         for m in matches
     )
     body = f'<h1>xT</h1><p class="meta">Expected threat by match</p><div class="list">{items or "<p>No matches yet.</p>"}</div>'

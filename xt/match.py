@@ -1,4 +1,4 @@
-"""Fetch a WhoScored match and value every ball-progressing action with xT."""
+"""Fetch a WhoScored match, value every ball-progressing action with xT, and add FotMob shots/xG."""
 
 from datetime import datetime, timezone
 from pathlib import Path
@@ -8,6 +8,8 @@ import pandas as pd
 import soccerdata as sd
 import socceraction.spadl as spadl
 from socceraction import xthreat
+
+from xt.shots import match_shots
 
 ROOT = Path(__file__).resolve().parent.parent
 GRID = ROOT / "data" / "xt_grid_12x8.json"  # Karun Singh's open 12x8 xT surface
@@ -55,8 +57,23 @@ def build_match(row: pd.Series, season: str) -> dict:
         moves.groupby(["player", "side"])
         .agg(xt=("xt", "sum"), xt_pass=("xt_pass", "sum"), xt_carry=("xt_carry", "sum"), moves=("xt", "size"))
         .reset_index()
+    )
+
+    # Shots and xG come from FotMob; its shot ids are the same Opta event ids WhoScored uses,
+    # so players are matched exactly and only fall back to FotMob's spelling for very recent shots
+    shot_list = match_shots(row.date.to_pydatetime(), row.home_team, row.away_team)
+    shots = pd.DataFrame(shot_list or [], columns=["event_id", "player", "side", "xg", "goal", "own_goal"])
+    shots = shots[~shots.own_goal.astype(bool)]
+    known = actions.dropna(subset=["original_event_id"]).drop_duplicates("original_event_id")
+    names = pd.Series(known.player.values, index=known.original_event_id.astype("int64"))
+    shots["player"] = shots.event_id.map(names).fillna(shots.player)
+    per_player = shots.groupby(["player", "side"]).agg(goals=("goal", "sum"), shots=("xg", "size"), xg=("xg", "sum"))
+    players = (
+        players.merge(per_player.reset_index(), on=["player", "side"], how="outer")
+        .fillna({"xt": 0.0, "xt_pass": 0.0, "xt_carry": 0.0, "moves": 0, "goals": 0, "shots": 0, "xg": 0.0})
         .sort_values("xt", ascending=False)
     )
+    team_xg = None if shot_list is None else {s: round(float(shots.loc[shots.side == s, "xg"].sum()), 2) for s in ("home", "away")}
 
     return {
         "id": game_id,
@@ -69,6 +86,7 @@ def build_match(row: pd.Series, season: str) -> dict:
         "finished": not live,
         "updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "xt": {side: round(float(moves.loc[moves.side == side, "xt"].sum()), 3) for side in ("home", "away")},
+        "xg": team_xg,
         "players": [
             {
                 "name": p.player,
@@ -77,6 +95,9 @@ def build_match(row: pd.Series, season: str) -> dict:
                 "xt_pass": round(p.xt_pass, 3) + 0.0,
                 "xt_carry": round(p.xt_carry, 3) + 0.0,  # avoid "-0.000"
                 "moves": int(p.moves),
+                "goals": int(p.goals),
+                "shots": int(p.shots),
+                "xg": round(p.xg, 2) + 0.0,
             }
             for p in players.itertuples()
         ],

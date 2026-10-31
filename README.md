@@ -2,7 +2,7 @@
 
 Expected threat (xT) for every player in a Premier League match, one simple page per match.
 
-Event data comes from WhoScored via [soccerdata](https://github.com/probberechts/soccerdata). Actions are converted to SPADL and valued with [socceraction](https://github.com/ML-KULeuven/socceraction)'s xT model, using Karun Singh's open 12×8 grid (`data/xt_grid_12x8.json`). Only successful passes and carries count.
+Event data comes from WhoScored via [soccerdata](https://github.com/probberechts/soccerdata); shots, goals and Opta xG come from FotMob, joined to WhoScored players by Opta event id. Actions are converted to SPADL and valued with [socceraction](https://github.com/ML-KULeuven/socceraction)'s xT model, using Karun Singh's open 12×8 grid (`data/xt_grid_12x8.json`). Only successful passes and carries count.
 
 ## Setup
 
