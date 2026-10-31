@@ -7,9 +7,9 @@
  "away_score": 0,
  "elapsed": "HT",
  "finished": false,
- "updated": "2026-10-31T13:22:58+00:00",
+ "updated": "2026-10-31T13:35:30+00:00",
  "xt": {
-  "home": 0.37,
+  "home": 0.367,
   "away": 0.956
  },
  "players": [
@@ -24,18 +24,10 @@
   {
    "name": "Amad Diallo",
    "side": "away",
-   "xt": 0.253,
-   "xt_pass": 0.157,
+   "xt": 0.25,
+   "xt_pass": 0.154,
    "xt_carry": 0.096,
-   "moves": 29
-  },
-  {
-   "name": "Morgan Rogers",
-   "side": "home",
-   "xt": 0.097,
-   "xt_pass": 0.077,
-   "xt_carry": 0.02,
-   "moves": 18
+   "moves": 30
   },
   {
    "name": "Diogo Dalot",
@@ -46,11 +38,19 @@
    "moves": 22
   },
   {
+   "name": "Morgan Rogers",
+   "side": "home",
+   "xt": 0.093,
+   "xt_pass": 0.071,
+   "xt_carry": 0.023,
+   "moves": 20
+  },
+  {
    "name": "Mois\u00e9s Caicedo",
    "side": "home",
    "xt": 0.068,
    "xt_pass": 0.069,
-   "xt_carry": -0.0,
+   "xt_carry": 0.0,
    "moves": 22
   },
   {
@@ -126,6 +126,14 @@
    "moves": 40
   },
   {
+   "name": "Cole Palmer",
+   "side": "home",
+   "xt": 0.029,
+   "xt_pass": 0.025,
+   "xt_carry": 0.004,
+   "moves": 32
+  },
+  {
    "name": "Rom\u00e9o Lavia",
    "side": "home",
    "xt": 0.029,
@@ -142,20 +150,12 @@
    "moves": 14
   },
   {
-   "name": "Cole Palmer",
-   "side": "home",
-   "xt": 0.024,
-   "xt_pass": 0.019,
-   "xt_carry": 0.006,
-   "moves": 32
-  },
-  {
    "name": "Levi Colwill",
    "side": "home",
    "xt": 0.014,
    "xt_pass": 0.013,
-   "xt_carry": 0.001,
-   "moves": 30
+   "xt_carry": 0.0,
+   "moves": 31
   },
   {
    "name": "Josh Acheampong",
@@ -166,20 +166,20 @@
    "moves": 29
   },
   {
-   "name": "Mike Penders",
-   "side": "home",
-   "xt": 0.004,
-   "xt_pass": 0.002,
-   "xt_carry": 0.001,
-   "moves": 9
-  },
-  {
    "name": "Carlos Baleba",
    "side": "away",
-   "xt": 0.0,
-   "xt_pass": 0.018,
+   "xt": 0.003,
+   "xt_pass": 0.021,
    "xt_carry": -0.018,
-   "moves": 28
+   "moves": 27
+  },
+  {
+   "name": "Mike Penders",
+   "side": "home",
+   "xt": 0.0,
+   "xt_pass": -0.001,
+   "xt_carry": 0.001,
+   "moves": 9
   },
   {
    "name": "Pedro Neto",
@@ -779,10 +779,21 @@
    "side": "home",
    "kind": "pass",
    "minute": 7,
-   "xt": 0.0054,
-   "x0": 7.6,
-   "y0": 35.6,
-   "x1": 48.9,
+   "xt": 0.0018,
+   "x0": 12.7,
+   "y0": 36.2,
+   "x1": 37.4,
+   "y1": 36.6
+  },
+  {
+   "player": "Morgan Rogers",
+   "side": "home",
+   "kind": "carry",
+   "minute": 7,
+   "xt": 0.0022,
+   "x0": 37.4,
+   "y0": 36.6,
+   "x1": 49.2,
    "y1": 36.7
   },
   {
@@ -3090,8 +3101,8 @@
    "kind": "carry",
    "minute": 47,
    "xt": 0.0011,
-   "x0": 23.3,
-   "y0": 48.0,
+   "x0": 21.1,
+   "y0": 45.4,
    "x1": 26.5,
    "y1": 49.4
   },

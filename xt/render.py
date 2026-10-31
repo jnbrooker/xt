@@ -4,13 +4,16 @@ import json
 from datetime import datetime
 from html import escape
 from pathlib import Path
+from shutil import copytree
+
+from xt.colours import css_vars
 
 ROOT = Path(__file__).resolve().parent.parent
 MATCHES = ROOT / "data" / "matches"
 SITE = ROOT / "docs"
 
 CSS = """
-:root{--bg:#fafaf9;--fg:#1c1917;--muted:#78716c;--line:#e7e5e4;--card:#fff;--home:#2563eb;--away:#ea580c;--pitch:#f5f5f4}
+:root{color-scheme:light dark;--bg:#fafaf9;--fg:#1c1917;--muted:#78716c;--line:#e7e5e4;--card:#fff;--home:#2563eb;--away:#ea580c;--pitch:#f5f5f4}
 @media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#f5f5f4;--muted:#a8a29e;--line:#2e2c2a;--card:#1c1b19;--home:#60a5fa;--away:#fb923c;--pitch:#1c1b19}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -86,12 +89,17 @@ PITCH_SVG = """<svg class="pitch" viewBox="-2 -2 109 72" role="img" aria-label="
 TIP = '<marker id="tip-{s}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--{s})"/></marker>'
 
 
-def page(title: str, body: str, depth: int = 0) -> str:
-    css = "../" * depth + "style.css"
+def page(title: str, body: str, depth: int = 0, style: str = "", refresh: bool = False) -> str:
+    up = "../" * depth
+    meta = '<meta http-equiv="refresh" content="120">' if refresh else ""
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{escape(title)}</title><link rel="stylesheet" href="{css}"></head>
-<body><main>{body}</main></body></html>"""
+<meta name="viewport" content="width=device-width,initial-scale=1">{meta}
+<meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="xT">
+<link rel="manifest" href="{up}manifest.webmanifest"><link rel="apple-touch-icon" href="{up}icon-180.png">
+<link rel="icon" href="{up}icon-192.png"><title>{escape(title)}</title><link rel="stylesheet" href="{up}style.css"></head>
+<body><main style="{style}">{body}</main></body></html>"""
 
 
 def score(m: dict) -> str:
@@ -137,12 +145,15 @@ def match_page(m: dict) -> str:
 <p class="hint">xT from successful passes and carries, using Karun Singh's open 12×8 grid via socceraction. Event data: WhoScored.</p>
 <script type="application/json" id="data">{json.dumps(m["actions"]).replace("</", "<\\/")}</script>
 <script>{PITCH_JS}</script>"""
-    return page(f'{m["home"]} v {m["away"]} · xT', body, depth=1)
+    return page(f'{m["home"]} v {m["away"]} · xT', body, depth=1,
+                style=css_vars(m["home"], m["away"]), refresh=not m["finished"])
 
 
 def index_page(matches: list[dict]) -> str:
     items = "".join(
-        f'<a href="matches/{m["id"]}.html"><span>{escape(m["home"])} {score(m)} {escape(m["away"])}'
+        f'<a href="matches/{m["id"]}.html" style="{css_vars(m["home"], m["away"])}">'
+        f'<span><span class="dot home"></span>{escape(m["home"])} {score(m)} {escape(m["away"])}'
+        f'<span class="dot away" style="margin:0 0 0 8px"></span>'
         f'<br><span class="meta">{when(m)} · {status(m)}</span></span>'
         f'<span class="xt">xT {m["xt"]["home"]:.2f} – {m["xt"]["away"]:.2f}</span></a>'
         for m in matches
@@ -160,3 +171,4 @@ def render_all() -> None:
     (SITE / "index.html").write_text(index_page(matches), encoding="utf-8")
     (SITE / "style.css").write_text(CSS.strip(), encoding="utf-8")
     (SITE / ".nojekyll").write_text("")
+    copytree(Path(__file__).parent / "static", SITE, dirs_exist_ok=True)

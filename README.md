@@ -23,3 +23,11 @@ Chrome must be installed. WhoScored blocks headless browsers, so a Chrome window
 ```
 
 Pages are written to `docs/`. To publish with GitHub Pages, deploy from the `main` branch's `/docs` folder.
+
+Add `--push` to commit and push after every build, so the live site keeps up during a match:
+
+```
+.venv\Scripts\python build.py --today --watch 120 --push
+```
+
+Teams are drawn in their kit colours (`xt/colours.py`). If the away colour clashes with the home side, or won't show on the page background, the next colour in that team's list is used.

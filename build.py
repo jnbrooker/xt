@@ -4,15 +4,28 @@
     python build.py --today          every Premier League match today that has kicked off
     python build.py --today --watch 120   keep refreshing live matches every 2 minutes
     python build.py --render         rebuild pages from saved data only
+
+Add --push to commit and push the pages after each build, so GitHub Pages updates.
 """
 
 import argparse
 import json
+import subprocess
 import time
-from datetime import date
+from datetime import date, datetime
 
-from xt.match import build_match, has_started, is_finished, schedule
+from xt.match import ROOT, build_match, has_started, is_finished, schedule
 from xt.render import MATCHES, render_all
+
+
+def publish() -> None:
+    git = lambda *a: subprocess.run(["git", *a], cwd=ROOT, check=True)
+    git("add", "data", "docs")
+    if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=ROOT).returncode == 0:
+        return
+    git("commit", "-q", "-m", f"Update xT pages {datetime.now():%Y-%m-%d %H:%M}")
+    git("push", "-q")
+    print("  pushed")
 
 
 def save(m: dict) -> None:
@@ -34,6 +47,8 @@ def run(args) -> bool:
     for _, row in rows.iterrows():
         save(build_match(row, args.season))
     render_all()
+    if args.push:
+        publish()
     return any(not is_finished(r) for _, r in rows.iterrows())
 
 
@@ -44,10 +59,13 @@ def main() -> None:
     p.add_argument("--season", default="2627", help="soccerdata season code, e.g. 2627")
     p.add_argument("--watch", type=int, metavar="SECONDS", help="rebuild live matches on an interval")
     p.add_argument("--render", action="store_true")
+    p.add_argument("--push", action="store_true", help="commit and push docs/ and data/ after building")
     args = p.parse_args()
 
     if args.render:
         render_all()
+        if args.push:
+            publish()
         return
     if not (args.ids or args.today):
         p.error("give match ids or --today")
